@@ -1,0 +1,25 @@
+type: code
+user-name: alejo0xono
+stage: immersion
+complexity: 6.07
+others:
+  in: 15
+  out: 27
+  totals: 42
+score:
+  initial: 48.41
+  final: 54.48
+  progress: 6.07
+global-rank:
+  initial: 8761
+  final: 8217
+  progress: 544
+national-rank:
+  initial: 484
+  final: 462
+  progress: 22
+total-time: 130.37
+effort: 3.187
+productivity: 1.9
+date: '2022-07-25 01:14:41Z'
+path: alejo0xono.lfe

@@ -1,0 +1,53 @@
+ Numero = '1110100011000011001001001111011110000100111000101110111100'
+
+ ArrayNumero = {Atom.toString Numero}
+
+ 1 --> 49
+ 0 -->48
+
+ ArrayNumero.1 --> Primer Elemento
+ ArrayNumero.2 --> El resto de Elemento
+ PrimerElemento = ArrayNumero.1
+ SegundoElemento = ArrayNumero.2
+ Contador = 1
+
+
+fun {Steps Data Contador}
+  local
+    PrimerElemento = Data.1
+    SegundoElemento = Data.2
+  in
+    if PrimerElemento == 10
+    then
+      
+    end    
+  end
+end
+
+fun {MapBinary PrimerElemento SegundoElemento Contador}
+  if SegundoElemento == nil
+  then nil
+  else
+    if PrimerElemento == SegundoElemento.1
+    then
+      Map(SegundoElemento.1 SegundoElemento.2 Contador+1)
+    else
+      {DecimalBinary Contador ''|
+      {MapBinay SegundoElemento.1 SegundoElemento.2 Contador}
+    end
+  end
+end
+
+fun {DecimalBinary Contador Binary}
+  local
+    Resultado
+  in
+    if Contador div 2 == 0
+    then
+      1#Binary
+    else
+      Resultado = {Int.'mod' Contador 2}#Binary
+      {DecimalBinary Contador div 2 Resultado}
+    end
+  end
+end

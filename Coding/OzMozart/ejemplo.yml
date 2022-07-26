@@ -1,0 +1,25 @@
+type: code
+user-name: alejo0xono
+stage: training
+complexity: 3.08
+others:
+  in: 20
+  out: 69
+  totals: 89
+score:
+  initial: 2.83
+  final: 5.91
+  progress: 3.08
+global-rank:
+  initial: 31863
+  final: 21435
+  progress: 10428
+national-rank:
+  initial: 25820
+  final: 21435
+  progress: 4385
+total-time: 18.14
+effort: 18.14
+productivity: 0.17
+date: '2022-06-14 05:42:00Z'
+path: alejo0xono.oz

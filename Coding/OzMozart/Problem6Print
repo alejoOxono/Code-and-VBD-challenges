@@ -1,0 +1,63 @@
+% ozc -c alejo0xono.oz
+
+functor
+import
+  System
+  Application
+  Open
+
+define
+local
+  Ncases
+  Data
+
+  proc {GetData}
+    local
+      class InputData from Open.file Open.text end
+    in
+      Data = {New InputData init(name:stdin)}
+      Ncases = {String.toInt {Data getS($)}}
+    end
+  end
+
+  fun {RoundNumber Row}
+    local
+      List = {String.tokens {Row getS($)} & }
+      CleanData = {Map List String.toFloat}
+      FloatDiv = {Nth CleanData 1} / {Nth CleanData 2}
+      Comparator = {Float.toInt FloatDiv}
+    in
+      if Comparator > 0
+      then {FloatToInt FloatDiv + 0.01}
+      elseif Comparator < 0
+      then {FloatToInt FloatDiv - 0.01}
+      else 0
+      end
+    end
+  end
+
+  proc {Print Ncases Data}
+    local
+      Resolve = {RoundNumber Data}
+    in
+      {System.printInfo Resolve}
+      {System.printInfo " "}
+      if Ncases > 2
+      then
+        {Print Ncases - 1 Data}
+      else
+        {System.printInfo {RoundNumber Data}}
+      end
+    end
+  end
+in
+  {GetData}
+  {Print Ncases Data}
+  {Application.exit 0}
+end
+end
+
+% cat DATA.lst | ozengine alejo0zono.ozf
+% 7 51873 133475 6 10 13 4776 7 4592 9 17167
+% 9 12928 5659 -2 -6 15 20 4943 18 7865 6 6
+% 2 3 14596 41188

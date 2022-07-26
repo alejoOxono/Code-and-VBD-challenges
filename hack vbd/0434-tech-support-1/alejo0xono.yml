@@ -1,0 +1,13 @@
+type: vbd
+user-name: alejo0xono
+stage: immersion
+dicovered-vulnerabilities:
+  by-me: 1
+  in-repo: 0
+  total: 1
+estimated-vulnerabilities: 1
+discovery-percentage: 100%
+total-time: 103.6
+effort: 9.48
+date: '2022-07-13 19:31:41Z'
+path: alejo0xono.feature

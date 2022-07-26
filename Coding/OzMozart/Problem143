@@ -1,0 +1,107 @@
+CASO 31132  24144
+
+Snext = Sprev - q * Scur
+Tnext = Tprev - q * Tcur
+
+X <-- Y <-- r
+Sprev <-- Scur <-- Snext
+Tprev <-- Tcur <-- Tnext
+
+Sprev = 1
+Scur  = 0
+
+Tprev = 0
+Tcur  = 1
+
+X = 31132, Y = 24144,   GCD(31132,24144) = 4
+
+a*31132 + b*24144 = 4
+
+31132 / 24144  yields q = 1, r = 6988
+Snext = 1 - 1 * 0 = 1,  Tnext = 0 - 1 * 1 = -1
+    (reassignment)
+
+24144 / 6988   yields q = 3, r = 3180
+Snext = 0 - 3 * 1 = -3,  Tnext = 1 - 3 * (-1) = 4
+    (reassignment)
+
+6988 / 3180   yields q = 2, r = 628
+Snext = 1 - 2 * (-3) = 7,  Tnext = -1 - 2 * (4) = -9
+    (reassignment)
+
+3180 / 628   yields q = 5, r = 40
+Snext = -3 - 5 * 7 = -38,  Tnext = 4 - 5 * (-9) = 49
+    (reassignment)
+
+628 / 40   yields q = 15, r = 28
+Snext = 7 - 15 * (-38) = 577,  Tnext = -9 - 15 * (49) = -744
+    (reassignment)
+
+40 / 28   yields q = 1, r = 12
+Snext = -38 - 1 * 577 = -615,  Tnext = 49 - 1 * (-744) = 793
+    (reassignment)
+
+28 / 12   yields q = 2, r = 4
+Snext = 577 - 2 * (-615) = 1807,  Tnext = -744 - 2 * (793) = -2330
+    (reassignment)
+
+12 / 4   yields q = 3, r = 0
+    (stop, print a = Scur = 1807 and b = Tcur = -2330)
+
+LCM 187912752  ---> Obtenido de factorizar cada número y multiplicar cada uno de sus factores
+                    que mientras se repitan en los dos números por analizar solo se indica
+                    uno de ellos por lo que...
+                                    72 | 2
+                    36 | 2          36 | 2              2*2*2*3*3
+                    18 | 2          18 | 2
+                    9  | 3           9 | 3
+                    3  | 3           3 | 3
+                    1                1 | 
+
+                    GCD = (72 * 36)/72 = 36
+
+                    31132 | 2          24144 | 2
+                    15566 | 2          12072 | 2
+                    7783  | 7783       6036  | 2
+                        1 | 1          1509  | 3
+                        1   1          503   | 503
+
+    numero1 = 
+    numero2 =
+    multi1 =
+    multi2 =
+    gcd
+    sprev = 1
+    scur  = 0
+    tprev = 0
+    tcur  = 1
+
+    fun Lcm( numero1, numero2, multi1, multi2 )
+        if numero1<numero2
+            lcm( comparador1, numero1 * multi1, multi1++, multi2 )
+        elseif numero1>numero2
+            lcm( numero1, numero1 * multi2, multi1, multi2++ )
+        else
+            return numero1
+
+    proc Gcd(numero1, numero2)
+        gcd = ( numero1 * numero2 ) / Lcm( numero1, numero2, multi1, multi2 )
+
+    fun Eea(numero1, numero2, gcd, sprev, scur, tprev, tcur, q)
+        if numero1 mod numero2 == 0
+            return scur tcur
+        fun Eea(numero2, 
+                numero1 mod numero2, 
+                gcd, 
+                scur, 
+                Sprev - q * Scur, 
+                tcur, 
+                Tprev - q * Tcur, 
+                numero1 / numero2, 
+                )
+    
+    fun Cases(numero1, numero2, gcd, sprev, scur, tprev, tcur, cases)
+        result = fun Eea(numero1, numero2, gcd, sprev, scur, tprev, tcur, numero1 / numero2)
+        if cases == 0
+            return result
+        fun Cases(numero1, numero2, gcd, sprev, scur, tprev, tcur, cases--)
