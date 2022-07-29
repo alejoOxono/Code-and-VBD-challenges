@@ -7,7 +7,7 @@ Feature:
   Location:
     https://192.168.1.7:1000
   CWE:
-    CWE-434: https://cwe.mitre.org/data/definitions/434.html
+    CWE-77: https://cwe.mitre.org/data/definitions/77.html
   Rule:
     REQ.004: https://docs.fluidattacks.com/criteria/vulnerabilities/004
     REQ.014: https://docs.fluidattacks.com/criteria/vulnerabilities/014

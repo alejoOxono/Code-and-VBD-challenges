@@ -1,0 +1,14 @@
+chall\sol(code): #0 codeabbey, 6 (3.08)
+chall\sol(code): #0 codeabbey, 52 (5.26)
+chall\sol(code): #0 codeabbey, 171 (7.40)
+chall\sol(vbd): #0 vulnhub, 0089-symfonos-5-2
+chall\sol(vbd): #0 vulnhub, 0077-funbox-scriptkiddie
+chall\sol(vbd): #0 vulnhub, 0079-funbox-under-construction
+chall\sol(code): #0 codeabbey, 143 (9.50)
+chall\sol(vbd): #0 vulnhub, 0434-tech-support-1
+chall\sol(code): #0 codeabbey, 179 (11.69)
+chall\sol(vbd): #0 vulnhub, 0307-funbox-gaokao
+chall\sol(code): #0 codeabbey, 41 (3.82)
+chall\sol(code): #0 codeabbey, 22 (6.07)
+chall\sol(vbd): #0 vulnhub, 0077-ripper-1
+chall\sol(vbd): #0 vulnhub, 0307-funbox-lunchbreaker
