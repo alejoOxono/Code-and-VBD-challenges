@@ -1,7 +1,3 @@
-;Erlang/OTP 24 [erts-12.3.2.1] [source] [64-bit]
-;[smp:6:6] [ds:6:6:10] [async-threads:1] [jit]
-;Eshell V12.3.2.1  (abort with ^G)
-
 (code:ensure_loaded 'math)
 
 (defun get_primes (one two primes)
@@ -20,10 +16,10 @@
 (defun get_max_prime (num)
   (if (> num 49)
   (cond
-    ((=:= (rem num 7) 0) (get_max_prime (div num 7)))
-    ((=:= (rem num 5) 0) (get_max_prime (div num 5)))
-    ((=:= (rem num 3) 0) (get_max_prime (div num 3)))
-    ((=:= (rem num 2) 0) (get_max_prime (div num 2)))
+    ((=:= (rem num 7) 0) (get_max_prime (div num 7)) )
+    ((=:= (rem num 5) 0) (get_max_prime (div num 5)) )
+    ((=:= (rem num 3) 0) (get_max_prime (div num 3)) )
+    ((=:= (rem num 2) 0) (get_max_prime (div num 2)) )
     ('true (round (+ (math:sqrt num) 1))))
     num))
 
@@ -43,7 +39,7 @@
 (defun print_result ()
   (let
     ((line (split_data)))
-    (let*
+    (let* 
       ((first_num (get_numbers line 1))
       (second_num (get_numbers line 2)))
         (lfe_io:print (get_primes first_num second_num 0))
@@ -58,6 +54,3 @@
     (list_to_integer (lists:nth 1 (string:tokens (io:get_line "") "\n")))))
 
 (main)
-
-;cat DATA.lst | lfe alejo0xono.lfe
-;26 253 351 90 622 1204 560 19 473 1122 303 2201 812 180 155

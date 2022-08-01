@@ -3,7 +3,7 @@
 
 Feature:
   TOE:
-    vulnhub Funbox: GaoKao
+    vulnhub Funbox: Lunchbreaker
   Location:
     192.168.1.19:21
   CWE:
@@ -103,7 +103,7 @@ Feature:
     -P /usr/share/wordlists/metasploit/unix_passwords.txt
     ftp://192.168.1.19 -vV -f
     """
-    when I got jane's password [evidence](9.png)
+    When I got jane's password [evidence](9.png)
     Then I execute the following command using the given credentials:
     """
     $ ftp 192.168.1.19
