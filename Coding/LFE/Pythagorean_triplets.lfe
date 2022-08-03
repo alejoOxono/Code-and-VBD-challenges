@@ -1,7 +1,3 @@
-;Erlang/OTP 24 [erts-12.3.2.1] [source] [64-bit]
-;[smp:6:6] [ds:6:6:10] [async-threads:1] [jit]
-;Eshell V12.3.2.1  (abort with ^G)
-
 (code:ensure_loaded 'math)
 
 (defun get_triplets (num exp)
@@ -44,7 +40,3 @@
     (list_to_integer (lists:nth 1 (string:tokens (io:get_line "") "\n")))))
 
 (main)
-
-;cat DATA.lst | lfe alejo0xono.lfe
-;1483599516961 1060436550625 411714722500 825590304400
-;622063464100 357309844516 1232568464521

@@ -12,3 +12,4 @@ chall\sol(code): #0 codeabbey, 41 (3.82)
 chall\sol(code): #0 codeabbey, 22 (6.07)
 chall\sol(vbd): #0 vulnhub, 0077-ripper-1
 chall\sol(vbd): #0 vulnhub, 0307-funbox-lunchbreaker
+chall\sol(code): #0 codeabbey, 54 (7.95)

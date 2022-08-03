@@ -1,0 +1,6 @@
+n = int(input())
+for _ in range(n):
+    cases, initail, end = [float(i) for i in input().split()]
+
+
+    
