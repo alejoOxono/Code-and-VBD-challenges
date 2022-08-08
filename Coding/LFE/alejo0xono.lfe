@@ -3,11 +3,11 @@
 ;Eshell V12.3.2.1  (abort with ^G)
 
 (defun get_medals (rays segments)
-  (cond
-    ((=< segments 1) 0)
-    ((=:= (rem rays segments) 0) 0)
-    ((> (/ segments rays) 0.5) 0)
-    ('true (* rays (- segments 1)))))
+    (cond 
+      ((=< segments 1) 0)
+      ((=:= (rem rays segments) 0) 0)
+      ((> (/ segments rays) 0.5) 0)
+      ('true (* rays (- segments 1)))))
 
 (defun get_numbers (array x)
   (list_to_integer (lists:nth x array)))

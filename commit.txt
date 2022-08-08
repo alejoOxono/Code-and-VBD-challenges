@@ -13,3 +13,6 @@ chall\sol(code): #0 codeabbey, 22 (6.07)
 chall\sol(vbd): #0 vulnhub, 0077-ripper-1
 chall\sol(vbd): #0 vulnhub, 0307-funbox-lunchbreaker
 chall\sol(code): #0 codeabbey, 134 (7.66)
+chall\sol(code): #0 codeabbey, 108 (9.07)
+chall\sol(vbd): #0 vulnhub, 0615-hacksudo-lpe
+chall\sol(vbd): #0 vulnhub, 0094-driftingblues-7

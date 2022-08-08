@@ -1,13 +1,9 @@
-;Erlang/OTP 24 [erts-12.3.2.1] [source] [64-bit]
-;[smp:6:6] [ds:6:6:10] [async-threads:1] [jit]
-;Eshell V12.3.2.1  (abort with ^G)
-
 (defun get_medals (rays segments)
-  (cond
-    ((=< segments 1) 0)
-    ((=:= (rem rays segments) 0) 0)
-    ((> (/ segments rays) 0.5) 0)
-    ('true (* rays (- segments 1)))))
+    (cond 
+      ((=< segments 1) 0)
+      ((=:= (rem rays segments) 0) 0)
+      ((> (/ segments rays) 0.5) 0)
+      ('true (* rays (- segments 1)))))
 
 (defun get_numbers (array x)
   (list_to_integer (lists:nth x array)))
@@ -41,5 +37,4 @@
 
 (main)
 
-;cat DATA.lst | lfe alejo0xono.lfe
 ;52 38 76 17 95 57 44 19 33
