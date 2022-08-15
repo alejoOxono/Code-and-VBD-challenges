@@ -1,7 +1,3 @@
-;Erlang/OTP 24 [erts-12.3.2.1] [source] [64-bit]
-;[smp:6:6] [ds:6:6:10] [async-threads:1] [jit]
-;Eshell V12.3.2.1  (abort with ^G)
-
 (code:ensure_loaded 'math)
 
 (defun GetMCD (first_num second_num)
@@ -13,11 +9,11 @@
         ('true second_num))))
 
 (defun GetResult (first_num second_num count result)
-  (let
-    ((power (round (math:pow first_num (GetMCD count second_num)))))
-    (if (> count second_num)
-      (div result second_num)
-      (GetResult first_num second_num (+ count 1) (+ result power)))))
+    (let
+      ((power (round (math:pow first_num (GetMCD count second_num)))))
+      (if (> count second_num)
+        (div result second_num)
+        (GetResult first_num second_num (+ count 1) (+ result power)))))
 
 (defun get_numbers (array x)
   (list_to_integer (lists:nth x array)))
@@ -48,6 +44,3 @@
     (list_to_integer (lists:nth 1 (string:tokens (io:get_line "") "\n")))))
 
 (main)
-
-;cat DATA.lst | lfe alejo0xono.lfe
-;1560 2783891 21 5934 104968 7826 498004

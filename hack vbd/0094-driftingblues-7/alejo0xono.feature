@@ -77,7 +77,7 @@ Feature:
     And its version 2.4
     Then I noted that port 443 was used by SSL/HTTP
     And its version Apache HTTPd 2.4.6
-    Then I noted that port 2403 was used by taskmaster
+    Then I noted that port 2403 was used by the taskmaster service
     Then I noted that port 3306 was used by mysql
     And its version MariaDB
     Then I noted that port 8086 was used by SSL/HTTP
@@ -119,7 +119,7 @@ Feature:
     """
     https://192.168.1.16
     """
-    Then I got access to EyesOfNetwork application
+    Then I got access to the EyesOfNetwork application
     When I was looking for the application info
     Then I got the EyesOfNetwork version [evidence](15.png)
     When looking for an EyesOfNetwork 5.3 vulnerability
