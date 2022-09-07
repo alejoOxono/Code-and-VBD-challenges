@@ -18,3 +18,11 @@ chall\sol(vbd): #0 vulnhub, 0615-hacksudo-lpe
 chall\sol(vbd): #0 vulnhub, 0094-driftingblues-7
 chall\sol(code): #0 codeabbey, 111 (11.03)
 chall\sol(vbd): #0 vulnhub, 0094-icmp-1
+chall\sol(code): #0 codeabbey, 001 (1.00)
+
+chall\sol(code): #0 codeabbey, 15 (2.97)
+chall\sol(code): #0 codeabbey, 16 (4.03)
+
+chall\sol(code): #0 codeabbey, 186 (12.38)
+
+--chall\sol(code): #0 codeabbey, 3 (2.30)--

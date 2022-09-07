@@ -1,0 +1,76 @@
+V "GNAT Lib v11"
+M P W=b
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IO
+RV NO_RECURSION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U main%b		recursividad.adb	195e2b0b NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+
+D ada.ads		20220421075852 76789da1 ada%s
+D a-except.ads		20220421075852 449c9b65 ada.exceptions%s
+D a-inteio.ads		20220421075852 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20220421075852 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20220421075852 119b8fb3 ada.streams%s
+D a-tags.ads		20220421075852 9eaa38c6 ada.tags%s
+D a-textio.ads		20220421075852 aef4d56d ada.text_io%s
+D a-tiinio.ads		20220421075852 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20220421075852 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20220421075852 edec285f interfaces%s
+D i-cstrea.ads		20220421075852 e53d8b8e interfaces.c_streams%s
+D recursividad.adb	20220901015038 a54168a6 main%b
+D system.ads		20220421075852 a2da961d system%s
+D s-crtl.ads		20220421075852 0ebbdb71 system.crtl%s
+D s-exctab.ads		20220421075852 54135002 system.exception_table%s
+D s-ficobl.ads		20220421075852 078245e4 system.file_control_block%s
+D s-imagei.ads		20220421075852 0d3f86a7 system.image_i%s
+D s-imgint.ads		20220421075852 bdb6f5ec system.img_int%s
+D s-parame.ads		20220421075852 4752c4cb system.parameters%s
+D s-secsta.ads		20220421075852 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20220421075852 a7318a92 system.soft_links%s
+D s-stache.ads		20220421075852 a37c21ec system.stack_checking%s
+D s-stalib.ads		20220421075852 0f2d51ff system.standard_library%s
+D s-stoele.ads		20220421075852 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20220421075852 ed88f8fb system.storage_elements%b
+D s-traent.ads		20220421075852 26a8d361 system.traceback_entries%s
+D s-wchcon.ads		20220421075852 1b7d22d2 system.wch_con%s
+G a e
+G c Z b b [main standard 5 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 12|1r6 1r23 2r6 2r31 3r6 3r29 47r4
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 12|2w10 2r35
+X 4 a-ioexce.ads
+18K13*IO_Exceptions 30e22 12|3w10 3r33
+X 7 a-textio.ads
+58K13*Text_IO 728e16 12|1w10 1r27 47r8
+466U14*Put 12|40s7 47s16
+466a19 Item{string} 12|40r12
+X 8 a-tiinio.ads
+59U14*Get 12|44s4[3|18]
+60i7 Item{integer} 12|44r9[3|18]
+X 12 recursividad.adb
+5U11*main 5b11 48l5 48t9
+7I9 Nat<integer> 10r13 11r13 13r30 15r25 15r37 16r14 16r32 24r28 24r40 38r30
+. 45r14
+9i4 valor{integer} 44m17 45r18
+10i4 valor2{7I9} 45m4 46r24
+11i4 result{7I9} 46m4 47r21
+13U14 PrintCases 13>26 28s7 38b14 41l8 41t18
+13i26 P{7I9} 38b26 40r20
+15V14 "+"{7I9} 15>18 15>21 16s48
+15i18 X{7I9} 16r10 16r46
+15i21 Y{7I9} 16r25 16r50
+24V13 Fibonacci{7I9} 24b13 24>24 34s18 36l8 36t17 46s14
+24i24 N{7I9} 25r45 28r19 29r10 31r13 34r29
+

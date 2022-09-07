@@ -1,0 +1,22 @@
+[GENERATED OBJECT FILE]
+b__recursividad.o
+[PROJECT FILES]
+/usr/share/gpr/_default.gpr
+20210928045650 340e523805eafad6b1cdaf79990d6eeb
+[BOUND OBJECT FILES]
+/home/alejo/Documentos/coding practice/challenges autono/Coding/Spark/Ejemplos//recursividad.o
+[GENERATED SOURCE FILES]
+b__recursividad.ads
+b__recursividad.adb
+b__recursividad.ali
+[RESULTING OPTIONS]
+-L/home/alejo/Documentos/coding practice/challenges autono/Coding/Spark/Ejemplos/
+-L/home/alejo/Documentos/coding practice/challenges autono/Coding/Spark/Ejemplos//
+-L/usr/lib/gcc/x86_64-linux-gnu/11/adalib/
+-shared
+-shared-libgcc
+-lgnat-11
+-ldl
+[RUN PATH OPTION]
+/usr/lib/gcc/x86_64-linux-gnu/11/adalib/
+/usr/lib

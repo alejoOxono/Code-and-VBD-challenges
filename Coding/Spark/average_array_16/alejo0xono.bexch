@@ -1,0 +1,22 @@
+[GENERATED OBJECT FILE]
+b__alejo0xono.o
+[PROJECT FILES]
+/usr/share/gpr/_default.gpr
+20210928045650 b3f6887408b6b06a7c44148ce210a76c
+[BOUND OBJECT FILES]
+/home/alejo/Documentos/coding practice/challenges autono/Coding/Spark/average_array_16//alejo0xono.o
+[GENERATED SOURCE FILES]
+b__alejo0xono.ads
+b__alejo0xono.adb
+b__alejo0xono.ali
+[RESULTING OPTIONS]
+-L/home/alejo/Documentos/coding practice/challenges autono/Coding/Spark/average_array_16/
+-L/home/alejo/Documentos/coding practice/challenges autono/Coding/Spark/average_array_16//
+-L/usr/lib/gcc/x86_64-linux-gnu/11/adalib/
+-shared
+-shared-libgcc
+-lgnat-11
+-ldl
+[RUN PATH OPTION]
+/usr/lib/gcc/x86_64-linux-gnu/11/adalib/
+/usr/lib

@@ -1,0 +1,25 @@
+type: code
+user-name: alejo0xono
+stage: immersion
+complexity: 4.03
+others:
+  in: 18
+  out: 36
+  totals: 54
+score:
+  initial: 114.97
+  final: 119
+  progress: 4.03
+global-rank:
+  initial: 4680
+  final: 4536
+  progress: 144
+national-rank:
+  initial: 313
+  final: 303
+  progress: 10
+total-time: 186.7
+effort: 1.784
+productivity: 2.26
+date: '2022-08-25 09:41:52Z'
+path: alejo0xono.adb
